@@ -2,6 +2,7 @@
   import welcome from "$lib/images/svelte-welcome.webp";
   import welcome_fallback from "$lib/images/svelte-welcome.png";
   import Calender from "./Calender.svelte";
+  export let data;
 </script>
 
 <svelte:head>
@@ -10,7 +11,7 @@
 </svelte:head>
 
 <section>
-  <Calender />
+  <Calender posts={data.posts} />
 </section>
 
 <style>

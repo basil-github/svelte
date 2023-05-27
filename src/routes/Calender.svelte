@@ -1,36 +1,10 @@
 <script>
   import { onMount } from "svelte";
 
-  const endpoint =
-    "https://clients6.google.com/calendar/v3/calendars/jkok9rvr09e3h4lm4jrrh8ejro@group.calendar.google.com/events?calendarId=jkok9rvr09e3h4lm4jrrh8ejro%40group.calendar.google.com&singleEvents=true&timeZone=Asia%2FKolkata&maxAttendees=1&maxResults=1000&sanitizeHtml=true&timeMin=2023-01-01T00%3A00%3A00%2B05%3A30&timeMax=2023-12-31T00%3A00%3A00%2B05%3A30&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
-  let posts = {
-    summary: undefined,
-    items: [
-      {
-        summary: undefined,
-        start: {
-          date: "",
-        },
-      },
-    ],
-  };
-
-  onMount(async function () {
-    const response = await fetch(endpoint);
-    const data = await response.json();
-    posts = {
-      ...data,
-      items: data.items
-        .map((/** @type {any} */ item) => ({
-          ...item,
-          mon: new Date(item?.start?.date).getMonth(),
-          // @ts-ignore
-        }))
-        // @ts-ignore
-        .sort((b, a) => new Date(b?.start?.date) - new Date(a?.start?.date)),
-    };
-    console.log(posts);
-  });
+  /**
+   * @type {{ items: string | any[]; summary: any; }}
+   */
+  export let posts;
   const month = (/** @type {string | number | Date} */ dateString) => {
     const monthNames = [
       "Jan",
