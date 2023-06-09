@@ -27,7 +27,7 @@
 
 <div>
   <div class="corner" />
-  <h5>Upcoming ({posts?.items?.length}) Events at {posts?.summary || ""}</h5>
+  <h5 style={"color:#fff"}>Upcoming ({posts?.items?.length}) Events at {posts?.summary || ""}</h5>
 <div class="ag-format-container">
   <div class="ag-courses_box">
       {#each posts?.items as events}
@@ -66,6 +66,7 @@
 </div>
 
 <style>
+
 .green_p{
   background-color:#98D8AA;
 }
